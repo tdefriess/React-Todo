@@ -49,7 +49,10 @@ addNewItem = itemText => {
     task: itemText,
     id: Date.now(),
     completed: false
-  }
+  };
+  this.setState({
+    todoList: [...this.state.todoList, newItem]
+  })
 }
 
   render() {
