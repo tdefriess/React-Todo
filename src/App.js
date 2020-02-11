@@ -1,5 +1,4 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
@@ -28,7 +27,7 @@ constructor() {
 }
 
 toggleItem = clickedID => {
-  console.log('toggling');
+  // console.log('toggling');
   const newList = this.state.todoList.map(item => {
     if (item.id === clickedID) {      
       return {
@@ -39,7 +38,7 @@ toggleItem = clickedID => {
       return item;
     }
   });
-  console.log(newList);
+  // console.log(newList);
   this.setState({
     todoList: newList
   });
@@ -56,6 +55,17 @@ addNewItem = itemText => {
   })
 }
 
+clearList = () => {
+  const newList = this.state.todoList.filter(item => {
+    if (item.completed === false) {
+      return item;
+    }
+  })
+  this.setState({
+    todoList: newList
+  });
+};
+
   render() {
     return (
       <div>
@@ -64,6 +74,7 @@ addNewItem = itemText => {
         <TodoList 
           todoList={this.state.todoList}
           toggleItem={this.toggleItem}
+          clearList={this.clearList}
         />
       </div>
     );
