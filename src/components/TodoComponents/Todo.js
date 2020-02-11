@@ -1,9 +1,11 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
+    console.log('todo props', props)
     return (
         <div
-            oncClick={() => props.toggleItem(props.item.id)}
+            onClick={() => props.toggleItem(props.item.id)}
             className = {`items${props.item.completed ? ' purchased' : ''}`}
         >
             <p>{props.item.task}</p>

@@ -28,17 +28,18 @@ constructor() {
 }
 
 toggleItem = clickedID => {
+  console.log('toggling');
   const newList = this.state.todoList.map(item => {
-    if (item.id === clickedID) {
+    if (item.id === clickedID) {      
       return {
         ...item,
-        completed: !item.completed
+        completed: !item.completed        
       };
     } else {
       return item;
     }
   });
-
+  console.log(newList);
   this.setState({
     todoList: newList
   });
